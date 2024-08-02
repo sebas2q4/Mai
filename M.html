@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contraseña y Mensajes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #FFDDC1, #FFABAB); /* Fondo con gradiente de tonos suaves */
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        #login-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #login-form input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #FFABAB; /* Borde rosa claro */
+            border-radius: 5px;
+        }
+        #login-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #FF6F61; /* Botón coral */
+            color: #fff;
+            border-radius: 5px;
+        }
+        #message {
+            font-size: 14px;
+            color: #FF6F61; /* Color coral para el mensaje de error */
+        }
+        #success-message {
+            display: none;
+            font-size: 24px;
+            color: #FFABAB; /* Color rosa claro */
+            font-family: 'Roboto', sans-serif;
+        }
+        #info-message {
+            display: none;
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+        #info-message-large {
+            display: none;
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        #question {
+            font-size: 18px;
+            color: #FF6F61; /* Color coral para la pregunta */
+            margin-top: 20px;
+        }
+        .option {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #FF6F61; /* Botones coral */
+            color: #fff;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .option:hover {
+            background-color: #FF4F4F; /* Coral más oscuro en hover */
+        }
+        a {
+            color: #FF6F61; /* Color coral para el enlace */
+            text-decoration: none; /* Sin subrayado */
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline; /* Subrayado en hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <input type="password" id="password" placeholder="Ingrese la contraseña">
+        <button onclick="checkPassword()">Enviar</button>
+    </div>
+    
+    <div id="message"></div>
+    <div id="success-message">Feliz cumpleaños Mai</div>
+    <div id="info-message-large">
+        Feliz cumpleaños mi niña ojos color canela, vivimos momentos divertidos y espero seguir viviendo más aventuras desde las más locas hasta las más aburridas, has mejorado mucho en basket. Eres una buena chica, y si la vida te pega tú también le pegas, pásala bien y si me desaparezco es que estoy buscando la forma de darte lo que te prometí.
+    </div>
+    <div id="info-message"></div>
+    
+    <div id="question" style="display: none;">
+        ¿Seguimos viviendo momentos juntos?
+        <br>
+        <button class="option" onclick="handleResponse('si')">Sí</button>
+        <button class="option" onclick="handleResponse('no')">No</button>
+    </div>
+    
+    <div>
+        <a href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" target="_blank">
+            Happy Birthday
+        </a>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            if (password === '24') {
+                document.getElementById('message').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('info-message-large').style.display = 'block';
+                document.getElementById('question').style.display = 'block';
+            } else {
+                document.getElementById('message').innerText = 'Chismosa la gente';
+                document.getElementById('message').style.display = 'block';
+            }
+        }
+
+        function handleResponse(response) {
+            var infoMessage = document.getElementById('info-message');
+            if (response === 'si') {
+                infoMessage.innerText = 'Entonces dímelo por chat';
+            } else {
+                infoMessage.innerText = 'Tienes que presionar el sí';
+            }
+            infoMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
